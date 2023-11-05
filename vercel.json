@@ -1,5 +1,4 @@
-{   
-    "version": 2,
+{
     "builds": [
         {
             "src": "crashdjango/wsgi.py",
@@ -10,21 +9,12 @@
             }
         },
         {
-            "src" : "build_files.sh",
-            "use" : "@vercel/static-build",
-            "config" : {
-                "disDir" : "staticfiles_build"
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "dir": "staticfiles_build"
             }
         }
-    ],
-    "routes": [
-        {
-            "src" : "/static/(.*)",
-            "dest" : "/static/$1"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/crashdjango/wsgi.py"
-        }
     ]
+    
 }
