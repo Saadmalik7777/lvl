@@ -1,20 +1,13 @@
 {
-    "builds": [
+    "version": 2,
+    "routes": [
         {
-            "src": "crashdjango/wsgi.py",
-            "use": "@vercel/python",
-            "config": {
-                "maxLambdaSize": "15mb",
-                "runtime": "python3.9"
-            }
+            "src" : "/static/(.*)",
+            "dest" : "/static/$1"
         },
         {
-            "src": "build_files.sh",
-            "use": "@vercel/static-build",
-            "config": {
-                "dir": "staticfiles_build"
-            }
+            "src": "/(.*)",
+            "dest": "/crashdjango/wsgi.py"
         }
     ]
-    
 }
